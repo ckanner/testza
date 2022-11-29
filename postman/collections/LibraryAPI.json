@@ -1,0 +1,250 @@
+{
+	"info": {
+		"_postman_id": "f30f04dd-874b-48ee-b1d7-263e4ae01bd7",
+		"name": "LibraryAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "22089123-f30f04dd-874b-48ee-b1d7-263e4ae01bd7"
+	},
+	"item": [
+		{
+			"name": "get one book",
+			"id": "a9b4f160-ef23-41b9-8f11-16242d05b493",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/book?bookId=urn:uuid:0d72d5da-5607-f45a-9f24-6c953406bd3c",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"book"
+					],
+					"query": [
+						{
+							"key": "bookId",
+							"value": "urn:uuid:0d72d5da-5607-f45a-9f24-6c953406bd3c",
+							"description": "(Required) ID of the book"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "6c3e0f98-1f54-4b44-8141-fe044f2d5c8f",
+					"name": "Details about a book by ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/book?bookId=urn:uuid:0d72d5da-5607-f45a-9f24-6c953406bd3c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"book"
+							],
+							"query": [
+								{
+									"key": "bookId",
+									"value": "urn:uuid:0d72d5da-5607-f45a-9f24-6c953406bd3c",
+									"description": "(Required) ID of the book"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"e8f70452-0607-4e7b-8ae4-15c4345c9007\",\n  \"title\": \"Ready Player One\",\n  \"author\": \"Cline, Ernest\",\n  \"genre\": \"Science Fiction\",\n  \"yearPublished\": 2011,\n  \"checkedOut\": false,\n  \"createdAt\": \"2021-06-02 17:37:38\"\n}"
+				},
+				{
+					"id": "e81204ba-0f3c-428f-a1b3-15f344257e23",
+					"name": "Unexpected error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/book?bookId=urn:uuid:0d72d5da-5607-f45a-9f24-6c953406bd3c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"book"
+							],
+							"query": [
+								{
+									"key": "bookId",
+									"value": "urn:uuid:0d72d5da-5607-f45a-9f24-6c953406bd3c",
+									"description": "(Required) ID of the book"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"code\": 404,\n  \"message\": \"mollit aliq\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get all books",
+			"id": "679e8b4d-a2e5-4fe2-9125-5238a349fc0a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/books",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"books"
+					]
+				}
+			},
+			"response": [
+				{
+					"id": "197d0fa5-57fa-4a92-a84a-1e804b1c7d5c",
+					"name": "Details about many books",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"disabled": false,
+							"description": "A link to the next page of responses",
+							"key": "x-next",
+							"value": "Ut qui enim sint"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n  {\n    \"id\": \"e8f70452-0607-4e7b-8ae4-15c4345c9007\",\n    \"title\": \"Ready Player One\",\n    \"author\": \"Cline, Ernest\",\n    \"genre\": \"Science Fiction\",\n    \"yearPublished\": 2011,\n    \"checkedOut\": false,\n    \"createdAt\": \"2021-06-02 17:37:38\"\n  },\n  {\n    \"id\": \"e8f70452-0607-4e7b-8ae4-15c4345c9007\",\n    \"title\": \"Ready Player One\",\n    \"author\": \"Cline, Ernest\",\n    \"genre\": \"Science Fiction\",\n    \"yearPublished\": 2011,\n    \"checkedOut\": false,\n    \"createdAt\": \"2021-06-02 17:37:38\"\n  }\n]"
+				},
+				{
+					"id": "e5f8dc65-fa6c-467a-bc3a-b9b46c930cb1",
+					"name": "Unexpected error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/books",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"books"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "html",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"code\": 404,\n  \"message\": \"mollit aliq\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "<Basic Auth Username>",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "<Basic Auth Password>",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "ed537370-89f9-4191-92d7-f35f2987cee9",
+			"key": "baseUrl",
+			"value": "http://localhost:3000/",
+			"type": "string"
+		}
+	]
+}
